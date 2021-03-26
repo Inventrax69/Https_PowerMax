@@ -1,0 +1,11 @@
+#Internal package file, do not edit.
+#Tue Mar 16 14:19:37 IST 2021
+1.base=E\:\\Pandu\\Demo\\Https_Aiduk\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
+0.baseType=DIRECTORY
+1.baseType=DIRECTORY
+count=2
+1.set=DEX
+0.path=classes2.dex
+0.set=DEX
+0.base=E\:\\Pandu\\Demo\\Https_Aiduk\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
+1.path=classes.dex

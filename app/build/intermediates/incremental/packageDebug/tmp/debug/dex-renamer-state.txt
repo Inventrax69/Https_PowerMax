@@ -1,0 +1,7 @@
+#Tue Mar 16 14:19:36 IST 2021
+base.0=E\:\\Pandu\\Demo\\Https_Aiduk\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
+path.1=classes2.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=E\:\\Pandu\\Demo\\Https_Aiduk\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out

@@ -1,0 +1,2 @@
+# Referenced at E:\Pandu\Demo\Https_Aiduk\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:73
+-keep class com.inventrax.merlinwms_hu.application.AppController { <init>(); }
