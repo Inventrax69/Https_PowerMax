@@ -1,27 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AndroidProjects\\Https_PowerMax\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hr\\values-hr.xml",
+            "outputFile": "E:\\Pandu\\Demo\\Https_PowerMax\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hr\\values-hr.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\c02dc7ec2155d8e0749abd7b889a5ed8\\res\\values-hr\\values-hr.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,160,268,391,488,598,684,788,907,991,1074,1160,1264,1377,1483,1588,1701,1808,1931,2028,2117",
-                        "endColumns": "104,107,122,96,109,85,103,118,83,82,85,103,112,105,104,112,106,122,96,88,100",
-                        "endOffsets": "155,263,386,483,593,679,783,902,986,1069,1155,1259,1372,1478,1583,1696,1803,1926,2023,2112,2213"
-                    },
-                    "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,50,51",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,210,318,441,538,648,734,838,957,1041,1124,1210,1314,1427,1533,1638,1751,1858,1981,6668,6757",
-                        "endColumns": "104,107,122,96,109,85,103,118,83,82,85,103,112,105,104,112,106,122,96,88,100",
-                        "endOffsets": "205,313,436,533,643,729,833,952,1036,1119,1205,1309,1422,1528,1633,1746,1853,1976,2073,6752,6853"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\6b60268c11eaa4103e92efa86e7a290a\\res\\values-hr\\common_strings.xml",
+                    "source": "C:\\Users\\Padmaja.B\\.gradle\\caches\\transforms-2\\files-2.1\\c322c3694186788607fc7f8e38c8a25b\\res\\values-hr\\common_strings.xml",
                     "from": {
                         "startLines": "3",
                         "startColumns": "4",
@@ -38,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\14bca8a00635ac472cf6f8ae38b9f8f1\\res\\values-hr\\base_strings.xml",
+                    "source": "C:\\Users\\Padmaja.B\\.gradle\\caches\\transforms-2\\files-2.1\\36b45715aad524966d32472a0869ef19\\res\\values-hr\\values-hr.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,160,268,391,488,598,684,788,907,991,1074,1160,1264,1377,1483,1588,1701,1808,1931,2028,2117",
+                        "endColumns": "104,107,122,96,109,85,103,118,83,82,85,103,112,105,104,112,106,122,96,88,100",
+                        "endOffsets": "155,263,386,483,593,679,783,902,986,1069,1155,1259,1372,1478,1583,1696,1803,1926,2023,2112,2213"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,50,51",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,210,318,441,538,648,734,838,957,1041,1124,1210,1314,1427,1533,1638,1751,1858,1981,6668,6757",
+                        "endColumns": "104,107,122,96,109,85,103,118,83,82,85,103,112,105,104,112,106,122,96,88,100",
+                        "endOffsets": "205,313,436,533,643,729,833,952,1036,1119,1205,1309,1422,1528,1633,1746,1853,1976,2073,6752,6853"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Padmaja.B\\.gradle\\caches\\transforms-2\\files-2.1\\cd755b075a5822b1370bb9a2e97473e2\\res\\values-hr\\base_strings.xml",
                     "from": {
                         "startLines": "24,10,9,8,7,5,6,4,19,18,17,16,3,28,27,26,25,21,20,22,12,11,15,14,13,23,29,30",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

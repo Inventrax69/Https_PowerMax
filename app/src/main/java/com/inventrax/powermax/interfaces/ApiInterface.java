@@ -265,5 +265,10 @@ public interface ApiInterface {
     @POST("Scan/ValidateSO")
     Call<String> ValidateSO(@Body WMSCoreMessage oRequest);
 
+    @POST("Outbound/GetStoreageLocation")
+    Call<String> GetStoreageLocation(@Body WMSCoreMessage oRequest);
 
+
+    @POST("Outbound/UpsertStockTakeData")
+    Call<String> UpsertStockTakeData(@Body WMSCoreMessage oRequest);
 }

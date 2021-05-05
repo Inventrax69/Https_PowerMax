@@ -1,2 +1,2 @@
-# Referenced at D:\AndroidProjects\Https_PowerMax\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:73
+# Referenced at E:\Pandu\Demo\Https_PowerMax\app\build\intermediates\merged_manifests\debug\AndroidManifest.xml:73
 -keep class com.inventrax.powermax.application.AppController { <init>(); }

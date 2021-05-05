@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: ./app/libs/CWAC-WakefulIntentService.jar">
+  <library name="Gradle: __local_aars__:E./Pandu/Demo/Https_PowerMax/app/libs/CWAC-WakefulIntentService.jar:unspecified@jar">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/app/libs/CWAC-WakefulIntentService.jar!/" />
     </CLASSES>

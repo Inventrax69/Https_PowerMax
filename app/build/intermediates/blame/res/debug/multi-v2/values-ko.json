@@ -1,27 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AndroidProjects\\Https_PowerMax\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ko\\values-ko.xml",
+            "outputFile": "E:\\Pandu\\Demo\\Https_PowerMax\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ko\\values-ko.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\c02dc7ec2155d8e0749abd7b889a5ed8\\res\\values-ko\\values-ko.xml",
+                    "source": "C:\\Users\\Padmaja.B\\.gradle\\caches\\transforms-2\\files-2.1\\7e07b4d575b303d6d962ee7cb01503d7\\res\\values-ko\\values-ko.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,150,258,381,475,577,659,757,863,942,1018,1098,1196,1291,1386,1486,1582,1681,1796,1890,1968",
-                        "endColumns": "94,107,122,93,101,81,97,105,78,75,79,97,94,94,99,95,98,114,93,77,100",
-                        "endOffsets": "145,253,376,470,572,654,752,858,937,1013,1093,1191,1286,1381,1481,1577,1676,1791,1885,1963,2064"
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,106,153,260",
+                        "endColumns": "50,46,106,71",
+                        "endOffsets": "101,148,255,327"
                     },
                     "to": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,50,51",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "105,200,308,431,525,627,709,807,913,992,1068,1148,1246,1341,1436,1536,1632,1731,1846,5961,6039",
-                        "endColumns": "94,107,122,93,101,81,97,105,78,75,79,97,94,94,99,95,98,114,93,77,100",
-                        "endOffsets": "195,303,426,520,622,704,802,908,987,1063,1143,1241,1336,1431,1531,1627,1726,1841,1935,6034,6135"
+                        "startLines": "52,53,54,55",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "6140,6191,6238,6345",
+                        "endColumns": "50,46,106,71",
+                        "endOffsets": "6186,6233,6340,6412"
                     }
                 },
                 {
-                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\14bca8a00635ac472cf6f8ae38b9f8f1\\res\\values-ko\\base_strings.xml",
+                    "source": "C:\\Users\\Padmaja.B\\.gradle\\caches\\transforms-2\\files-2.1\\cd755b075a5822b1370bb9a2e97473e2\\res\\values-ko\\base_strings.xml",
                     "from": {
                         "startLines": "24,10,9,8,7,5,6,4,19,18,17,16,3,28,27,26,25,21,20,22,12,11,15,14,13,23,29,30",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -38,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\6b60268c11eaa4103e92efa86e7a290a\\res\\values-ko\\common_strings.xml",
+                    "source": "C:\\Users\\Padmaja.B\\.gradle\\caches\\transforms-2\\files-2.1\\c322c3694186788607fc7f8e38c8a25b\\res\\values-ko\\common_strings.xml",
                     "from": {
                         "startLines": "3",
                         "startColumns": "4",
@@ -55,20 +55,20 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\7008d88e6fe1cf851552c893c81ac15a\\res\\values-ko\\values-ko.xml",
+                    "source": "C:\\Users\\Padmaja.B\\.gradle\\caches\\transforms-2\\files-2.1\\36b45715aad524966d32472a0869ef19\\res\\values-ko\\values-ko.xml",
                     "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,106,153,260",
-                        "endColumns": "50,46,106,71",
-                        "endOffsets": "101,148,255,327"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,150,258,381,475,577,659,757,863,942,1018,1098,1196,1291,1386,1486,1582,1681,1796,1890,1968",
+                        "endColumns": "94,107,122,93,101,81,97,105,78,75,79,97,94,94,99,95,98,114,93,77,100",
+                        "endOffsets": "145,253,376,470,572,654,752,858,937,1013,1093,1191,1286,1381,1481,1577,1676,1791,1885,1963,2064"
                     },
                     "to": {
-                        "startLines": "52,53,54,55",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "6140,6191,6238,6345",
-                        "endColumns": "50,46,106,71",
-                        "endOffsets": "6186,6233,6340,6412"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,50,51",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,200,308,431,525,627,709,807,913,992,1068,1148,1246,1341,1436,1536,1632,1731,1846,5961,6039",
+                        "endColumns": "94,107,122,93,101,81,97,105,78,75,79,97,94,94,99,95,98,114,93,77,100",
+                        "endOffsets": "195,303,426,520,622,704,802,908,987,1063,1143,1241,1336,1431,1531,1627,1726,1841,1935,6034,6135"
                     }
                 }
             ]

@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="Gradle: ./app/libs/openbeans-1.0.jar">
+  <library name="Gradle: __local_aars__:E./Pandu/Demo/Https_PowerMax/app/libs/openbeans-1.0.jar:unspecified@jar">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/app/libs/openbeans-1.0.jar!/" />
     </CLASSES>
