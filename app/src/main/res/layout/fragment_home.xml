@@ -218,7 +218,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="vertical"
-                        android:visibility="visible">
+                        android:visibility="invisible">
 
                         <ImageView
                             android:id="@+id/imageView3"

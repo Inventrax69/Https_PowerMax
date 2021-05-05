@@ -229,7 +229,7 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
         btnBinComplete.setOnClickListener(this);
         btn_clear.setOnClickListener(this);
         btnGo.setOnClickListener(this);
-        cvScanFromCont.setOnClickListener(this);
+   //     cvScanFromCont.setOnClickListener(this);
 
         exceptionLoggerUtils = new ExceptionLoggerUtils();
         errorMessages = new ErrorMessages();
@@ -287,9 +287,6 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
         getWarehouse();
         linear.setVisibility(View.GONE);
 
-
-
-
     }
 
 
@@ -300,14 +297,14 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
             case R.id.btn_clear:
                 Clearfields();                       // clear the scanned fields
                 break;
-            case R.id.cvScanFromCont:
+                // Removing  on click for pallet
+            /*case R.id.cvScanFromCont:
                 isPalletScaned = true;
                 cvScanFromCont.setCardBackgroundColor(getResources().getColor(R.color.white));
                 ivScanFromCont.setImageResource(R.drawable.check);
-                break;
+                break;*/
 
             case R.id.btnGo:
-
                 if (!whId.equals("") && !tenantId.equals("")) {
                     rlSelect.setVisibility(View.GONE);
                     rlInternalTransfer.setVisibility(View.VISIBLE);
@@ -383,6 +380,8 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
         //GetBinToBinStorageLocations();
     }
     private void Clearfields() {
+        cvScanSku.setCardBackgroundColor(getResources().getColor(R.color.skuColor));
+        ivScanSku.setImageResource(R.drawable.fullscreen_img);
 
         cvScanFromCont.setCardBackgroundColor(getResources().getColor(R.color.palletColor));
         ivScanFromCont.setImageResource(R.drawable.fullscreen_img);
@@ -397,6 +396,8 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
         etPallet.setText("");
         etSku.setText("");
         etQty.setText("");
+
+
 
         lblBatchNo.setText("");
         lblserialNo.setText("");
@@ -530,9 +531,10 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
                             ProgressDialogUtils.closeProgressDialog();
                             if (scanDTO1 != null) {
                                 if (scanDTO1.getScanResult()) {
-
-                                    cvScanSku.setCardBackgroundColor(getResources().getColor(R.color.skuColor));
-                                    ivScanSku.setImageResource(R.drawable.fullscreen_img);
+                                    cvScanSku.setCardBackgroundColor(getResources().getColor(R.color.white));
+                                    ivScanSku.setImageResource(R.drawable.check);
+                                   // cvScanSku.setCardBackgroundColor(getResources().getColor(R.color.skuColor));
+                                  //  ivScanSku.setImageResource(R.drawable.fullscreen_img);
 
                                     Materialcode = scanDTO1.getSkuCode();
                                     lblBatchNo.setText(scanDTO1.getBatch());
@@ -558,6 +560,8 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
                                     common.showUserDefinedAlertType(errorMessages.EMC_0009, getActivity(), getContext(), "Warning");
                                 }
                             } else {
+                                cvScanSku.setCardBackgroundColor(getResources().getColor(R.color.skuColor));
+                                ivScanSku.setImageResource(R.drawable.fullscreen_img);
                                 lstInventryList=new ArrayList<>();
                                 FromQty="";
                                 FromSloc="";
@@ -599,8 +603,6 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
     public void getTenants() {
 
         try {
-
-
             WMSCoreMessage message = new WMSCoreMessage();
             message = common.SetAuthentication(EndpointConstants.HouseKeepingDTO, getContext());
             HouseKeepingDTO houseKeepingDTO = new HouseKeepingDTO();
@@ -731,9 +733,7 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
     }
 
     public void UpdateMaterialTransfer() {
-
         try {
-
             WMSCoreMessage message = new WMSCoreMessage();
             message = common.SetAuthentication(EndpointConstants.Inventory, getContext());
             InventoryDTO inventoryDTO = new InventoryDTO();
@@ -828,7 +828,7 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
                                             {
                                                 switch (which) {
                                                     case DialogInterface.BUTTON_POSITIVE:
-                                                        Clearfields1();
+                                                   Clearfields();
                                                         new Common().setIsPopupActive(false);
                                                         break;
                                                 }
@@ -910,8 +910,8 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
             inventoryDTO.setProjectNo(lblProjectRefNo.getText().toString());
             inventoryDTO.setMRP(lblMRP.getText().toString());
             message.setEntityObject(inventoryDTO);
-
             Call<String> call = null;
+
             ApiInterface apiService = RetrofitBuilderHttpsEx.getInstance(getActivity()).create(ApiInterface.class);
             try {
                 //Checking for Internet Connectivity
@@ -981,7 +981,8 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
                                     slocAvailableListAdapter = new SlocAvailableListAdapter(getActivity(), lstInventryList, new SlocAvailableListAdapter.OnCheckChangeListner() {
                                         @Override
                                         public void onCheckChange(final int pos, boolean isChecked) {
-                                            for(int i=0;i<lstInventryList.size();i++) lstInventryList.get(i).setChecked(false);
+                                            for(int i=0;i<lstInventryList.size();i++)
+                                                lstInventryList.get(i).setChecked(false);
                                             lstInventryList.get(pos).setChecked(isChecked);
                                             FromSloc= lstInventryList.get(pos).getStorageLocation();
                                             FromQty= lstInventryList.get(pos).getQuantity();
@@ -1030,7 +1031,6 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
                                 }
 
 
-
                             }
                         } catch (Exception ex) {
                             try {
@@ -1076,10 +1076,7 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
     }
 
     public void getWarehouse() {
-
         try {
-
-
             WMSCoreMessage message = new WMSCoreMessage();
             message = common.SetAuthentication(EndpointConstants.HouseKeepingDTO, getContext());
             HouseKeepingDTO houseKeepingDTO = new HouseKeepingDTO();
@@ -1087,8 +1084,6 @@ public class MaterialTransferFragment extends Fragment implements View.OnClickLi
             houseKeepingDTO.setUserId(Userid);
             houseKeepingDTO.setTenantID(tenantId);
             message.setEntityObject(houseKeepingDTO);
-
-
             Call<String> call = null;
             ApiInterface apiService = RetrofitBuilderHttpsEx.getInstance(getActivity()).create(ApiInterface.class);
 

@@ -162,8 +162,8 @@ com/google/gson/annotations/JsonAdapter.class
 com/google/gson/annotations/SerializedName.class
 com/google/gson/annotations/Since.class
 com/google/gson/annotations/Until.class
-com/inventrax/merlinwms_hu/application/AbstractApplication.class
-com/inventrax/merlinwms_hu/application/AppController.class
+com/inventrax/powermax/application/AbstractApplication.class
+com/inventrax/powermax/application/AppController.class
 okhttp3/Address.class
 okhttp3/Authenticator.class
 okhttp3/Cache$2.class

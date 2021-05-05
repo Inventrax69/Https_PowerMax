@@ -1,4 +1,4 @@
-com.inventrax.merlinwms_hu
+com.inventrax.powermax
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -1329,6 +1329,7 @@ id cvScanSONumber
 id cvScanSku
 id cvScanToCont
 id cvScanToLoc
+id cvScanTopallet
 id dark
 id decor_content_parent
 id default_activity_button
@@ -1372,6 +1373,7 @@ id etScannedLocation
 id etSerial
 id etServiceUrl
 id etSku
+id etToPallet
 id etUsername
 id exitUntilCollapsed
 id expand_activities_button
@@ -1417,6 +1419,7 @@ id ivScanSONumber
 id ivScanSku
 id ivScanToCont
 id ivScanToLoc
+id ivScanTopallet
 id ivSettings
 id ivSucess
 id label_OBD
@@ -1641,6 +1644,8 @@ id start
 id status_bar_latest_event_content
 id submenuarrow
 id submit_area
+id sug_loc
+id sugloc
 id tabMode
 id text
 id text2
@@ -1698,6 +1703,7 @@ id tvScanRSN
 id tvScanSKU
 id tvScanSONumber
 id tvScanSku
+id tvScanTopallet
 id tvSelectCycleCount
 id tvSelectDivision
 id tvSelectJobOrder
@@ -1743,8 +1749,10 @@ id txtInputLayoutQty
 id txtInputLayoutScannedLocation
 id txtInputLayoutSerial
 id txtInputLayoutServiceUrl
+id txtInputLayoutTOPallet
 id txtInputLayoutToLoc
 id txtInputLayoutToPallet
+id txtInputLayoutetSku
 id txtLocation
 id txtLocationCode
 id txtLoginUser
@@ -1765,6 +1773,7 @@ id txtVersionName
 id txtWarehousetName
 id txtWebSite
 id txtYouTubeLink
+id txtlblHu
 id up
 id useLogo
 id viewOne
@@ -1870,7 +1879,9 @@ layout fragment_outboundrevert_header
 layout fragment_packing
 layout fragment_packinginfo
 layout fragment_pallet_tranfers
+layout fragment_powermaxpmx
 layout fragment_putaway
+layout fragment_qc
 layout fragment_settings
 layout fragment_sorting
 layout fragment_stock_transfer_picking
@@ -2058,6 +2069,7 @@ string hintRSN
 string hintSLoc
 string hintSerial
 string hintServiceURL
+string hintTopallet
 string hintUser
 string hu
 string inbRec
@@ -2139,10 +2151,13 @@ string scanPart
 string scanSKU
 string scanToContainer
 string scanToLocation
+string scanTopallet
 string scan_carton
 string scan_new_rsn
 string scan_so_number
 string scancartoon
+string scanfrompallet
+string scantoPallet
 string search
 string search_menu_title
 string selectCC

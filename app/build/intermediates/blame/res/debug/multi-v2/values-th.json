@@ -1,44 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Pandu\\Demo\\Https_Aiduk\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-th\\values-th.xml",
+            "outputFile": "D:\\AndroidProjects\\Https_PowerMax\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-th\\values-th.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Padmaja.B\\.gradle\\caches\\transforms-2\\files-2.1\\c322c3694186788607fc7f8e38c8a25b\\res\\values-th\\common_strings.xml",
-                    "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "170",
-                        "endColumns": "243",
-                        "endOffsets": "409"
-                    },
-                    "to": {
-                        "startLines": "38",
-                        "startColumns": "4",
-                        "startOffsets": "4670",
-                        "endColumns": "239",
-                        "endOffsets": "4905"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Padmaja.B\\.gradle\\caches\\transforms-2\\files-2.1\\7e07b4d575b303d6d962ee7cb01503d7\\res\\values-th\\values-th.xml",
-                    "from": {
-                        "startLines": "2,3,4,5",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "55,114,163,281",
-                        "endColumns": "58,48,117,107",
-                        "endOffsets": "109,158,276,384"
-                    },
-                    "to": {
-                        "startLines": "52,53,54,55",
-                        "startColumns": "4,4,4,4",
-                        "startOffsets": "6669,6728,6777,6895",
-                        "endColumns": "58,48,117,107",
-                        "endOffsets": "6723,6772,6890,6998"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Padmaja.B\\.gradle\\caches\\transforms-2\\files-2.1\\36b45715aad524966d32472a0869ef19\\res\\values-th\\values-th.xml",
+                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\c02dc7ec2155d8e0749abd7b889a5ed8\\res\\values-th\\values-th.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -55,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Padmaja.B\\.gradle\\caches\\transforms-2\\files-2.1\\cd755b075a5822b1370bb9a2e97473e2\\res\\values-th\\base_strings.xml",
+                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\14bca8a00635ac472cf6f8ae38b9f8f1\\res\\values-th\\base_strings.xml",
                     "from": {
                         "startLines": "24,10,9,8,7,5,6,4,19,18,17,16,3,28,27,26,25,21,20,22,12,11,15,14,13,23,29,30",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -69,6 +35,40 @@
                         "startOffsets": "2019,2282,2408,2587,2712,2839,3041,3244,3370,3530,3651,3816,3945,4083,4241,4371,4539,4910,5140,5262,5369,5547,5671,5870,6001,6182,6275,6373",
                         "endColumns": "262,125,178,124,126,201,202,125,159,120,164,128,137,157,129,167,130,229,121,106,177,123,198,130,180,92,97,113",
                         "endOffsets": "2277,2403,2582,2707,2834,3036,3239,3365,3525,3646,3811,3940,4078,4236,4366,4534,4665,5135,5257,5364,5542,5666,5865,5996,6177,6270,6368,6482"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\6b60268c11eaa4103e92efa86e7a290a\\res\\values-th\\common_strings.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "170",
+                        "endColumns": "243",
+                        "endOffsets": "409"
+                    },
+                    "to": {
+                        "startLines": "38",
+                        "startColumns": "4",
+                        "startOffsets": "4670",
+                        "endColumns": "239",
+                        "endOffsets": "4905"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\7008d88e6fe1cf851552c893c81ac15a\\res\\values-th\\values-th.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,114,163,281",
+                        "endColumns": "58,48,117,107",
+                        "endOffsets": "109,158,276,384"
+                    },
+                    "to": {
+                        "startLines": "52,53,54,55",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "6669,6728,6777,6895",
+                        "endColumns": "58,48,117,107",
+                        "endOffsets": "6723,6772,6890,6998"
                     }
                 }
             ]

@@ -152,6 +152,18 @@ public class InventoryDTO {
     @SerializedName("ToStorageLocation")
     private String ToStorageLocation;
 
+    @SerializedName("InboundId")
+    private String InboundId;
+    @SerializedName("TocartonCode")
+    private String TocartonCode;
+
+    @SerializedName("HUNo")
+    public String HUNo;
+
+    @SerializedName("HUSize")
+    public String HUSize;
+
+
 
     private boolean isChecked=false;
 
@@ -425,6 +437,27 @@ public class InventoryDTO {
                 case "ToStorageLocation":
                     if (entry.getValue() != null) {
                         this.setToStorageLocation(entry.getValue().toString());
+                    }
+                    break;
+
+                case "InboundId":
+                    if (entry.getValue() != null) {
+                        this.setInboundId(entry.getValue().toString());
+                    }
+                    break;
+                case "TocartonCode":
+                    if (entry.getValue() != null) {
+                        this.setTocartonCode(entry.getValue().toString());
+                    }
+                    break;
+                case "HUNo":
+                    if (entry.getValue() != null) {
+                        this.setHUNo(entry.getValue().toString());
+                    }
+                    break;
+                case "HUSize":
+                    if (entry.getValue() != null) {
+                        this.setHUSize(entry.getValue().toString());
                     }
                     break;
 
@@ -899,5 +932,35 @@ public class InventoryDTO {
         isChecked = checked;
     }
 
+    public String getInboundId() {
+        return InboundId;
+    }
 
+    public void setInboundId(String inboundId) {
+        InboundId = inboundId;
+    }
+
+    public String getTocartonCode() {
+        return TocartonCode;
+    }
+
+    public void setTocartonCode(String tocartonCode) {
+        TocartonCode = tocartonCode;
+    }
+
+    public String getHUNo() {
+        return HUNo;
+    }
+
+    public void setHUNo(String HUNo) {
+        this.HUNo = HUNo;
+    }
+
+    public String getHUSize() {
+        return HUSize;
+    }
+
+    public void setHUSize(String HUSize) {
+        this.HUSize = HUSize;
+    }
 }

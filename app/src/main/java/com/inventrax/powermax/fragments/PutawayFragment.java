@@ -47,6 +47,8 @@ import com.inventrax.powermax.common.constants.EndpointConstants;
 import com.inventrax.powermax.common.constants.ErrorMessages;
 import com.inventrax.powermax.interfaces.ApiInterface;
 import com.inventrax.powermax.pojos.InboundDTO;
+import com.inventrax.powermax.pojos.InventoryDTO;
+import com.inventrax.powermax.pojos.OutbountDTO;
 import com.inventrax.powermax.pojos.PutawayDTO;
 import com.inventrax.powermax.pojos.ScanDTO;
 import com.inventrax.powermax.pojos.WMSCoreMessage;
@@ -74,7 +76,7 @@ import retrofit2.Response;
  * Created by Padmaja.B on 20/12/2018.
  */
 
-public class PutawayFragment extends Fragment implements View.OnClickListener, BarcodeReader.TriggerListener, BarcodeReader.BarcodeListener {
+public class PutawayFragment extends Fragment implements View.OnClickListener, BarcodeReader.TriggerListener, BarcodeReader.BarcodeListener, AdapterView.OnItemSelectedListener {
 
     private View rootView;
     private static final String classCode = "API_FRAG_PUTAWAY";
@@ -83,13 +85,13 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
     private SearchableSpinner spinnerSelectStRef, spinnerSelectReason;
     private TextInputLayout txtInputLayoutBatch, txtInputLayoutSerial, txtInputLayoutMfgDate,
             txtInputLayoutExpDate, txtInputLayoutProjectRef, txtInputLayoutQty, txtInputLayoutMRP;
-    private EditText etBatch, etSerial, etMfgDate, etExpDate, etProjectRef, etQty, etMRP,etScannedLocation;
-    private ImageView ivScanLocation, ivScanPallet, ivScanSku, ivScanDock;
+    private EditText etBatch, etSerial, etMfgDate, etExpDate, etProjectRef, etQty, etMRP,etScannedLocation,etToPallet;
+    private ImageView ivScanLocation, ivScanPallet, ivScanSku, ivScanDock,ivScanTopallet;
     private Button btnGo, btnClear, btnSkip,
             btnOk, btnCloseSkip, btnPutaway;
-    private CardView cvScanPallet, cvScanLocation, cvScanSku, cvScanDock;
+    private CardView cvScanPallet, cvScanLocation, cvScanSku, cvScanDock,cvScanTopallet;
     private TextView lblRefNo, lblSuggestedLoc, lblScannedLocation, lblStoreRefNo,
-            lblPutawayQty, lblContainer, lblSKU, lblScannedDock, lblDock,lblScannedLoc;
+            lblPutawayQty, lblContainer, lblSKU, lblScannedDock, lblDock,lblScannedLoc,tvScanTopallet;
 
     private ScanValidator scanValidator;
     String scanner = null, SuggestedId = null, inboundId = null,
@@ -106,13 +108,15 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
     private ErrorMessages errorMessages;
     List<String> lstLocMaterialQty = null;
     private String refNo = null, SKU = "", skipReason = null,
-            loc = null, materialMasterId = null, kitId = null, lineNo = null;
+            loc = null, materialMasterId = null, kitId = null, lineNo = null,storageloc = "";
     private String userId = null, scanType = null, accountId = null, suggestedPutawayId = null;
     public List<String> lstPalletnumberHeader = null;
     List<InboundDTO> lstInbound = null;
-    private boolean isContainerScanned = false, isDockScanned = false, restrictScan = false,isLocationScanned=false;
+    private boolean isContainerScanned = false, isDockScanned = false, restrictScan = false,isLocationScanned=false,isMaterialScanned=false, isPalletScanned=false;
     SoundUtils soundUtils;
     PutawayDTO returningObj;
+    private SearchableSpinner spinnerSelectSloc;
+    ArrayAdapter arrayAdapter1;
 
 
     // Cipher Barcode Scanner
@@ -176,9 +180,10 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
         etQty = (EditText) rootView.findViewById(R.id.etQty);
         etMRP = (EditText) rootView.findViewById(R.id.etMRP);
         etScannedLocation = (EditText) rootView.findViewById(R.id.etScannedLocation);
+        etToPallet  = (EditText) rootView.findViewById(R.id.etToPallet);
 
 
-        etQty.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+      /*  etQty.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEND) {
@@ -189,16 +194,18 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
                 return false;
             }
         });
-
+*/
         cvScanLocation = (CardView) rootView.findViewById(R.id.cvScanLocation);
         cvScanPallet = (CardView) rootView.findViewById(R.id.cvScanPallet);
         cvScanSku = (CardView) rootView.findViewById(R.id.cvScanSku);
         cvScanDock = (CardView) rootView.findViewById(R.id.cvScanDock);
+        cvScanTopallet = (CardView) rootView.findViewById(R.id.cvScanTopallet);
 
         ivScanLocation = (ImageView) rootView.findViewById(R.id.ivScanLocation);
         ivScanPallet = (ImageView) rootView.findViewById(R.id.ivScanPallet);
         ivScanSku = (ImageView) rootView.findViewById(R.id.ivScanSku);
         ivScanDock = (ImageView) rootView.findViewById(R.id.ivScanDock);
+        ivScanTopallet = (ImageView) rootView.findViewById(R.id.ivScanTopallet);
 
         btnGo = (Button) rootView.findViewById(R.id.btnGo);
         btnClear = (Button) rootView.findViewById(R.id.btnClear);
@@ -247,7 +254,8 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
         lblSKU = (TextView) rootView.findViewById(R.id.lblSKU);
         lblScannedDock = (TextView) rootView.findViewById(R.id.lblScannedDock);
         lblDock = (TextView) rootView.findViewById(R.id.lblDock);
-
+        spinnerSelectSloc = (SearchableSpinner) rootView.findViewById(R.id.spinnerSelectSloc);
+        spinnerSelectSloc.setEnabled(false);
         btnGo.setOnClickListener(this);
         btnClear.setOnClickListener(this);
         btnSkip.setOnClickListener(this);
@@ -255,6 +263,7 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
         btnCloseSkip.setOnClickListener(this);
         btnPutaway.setOnClickListener(this);
         cvScanPallet.setOnClickListener(this);
+        spinnerSelectSloc.setOnItemSelectedListener(this);
 
         if (scanType.equals("Auto")) {                      // Disabling Putaway button in Auto mode
             btnPutaway.setEnabled(false);
@@ -336,7 +345,7 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
                 FragmentUtils.replaceFragmentWithBackStack(getActivity(), R.id.container_body, new HomeFragment());
                 break;
 
-          case R.id.cvScanPallet:
+          /*case R.id.cvScanPallet:
               if(!isContainerScanned){
                   isContainerScanned = true;
                   cvScanPallet.setCardBackgroundColor(getResources().getColor(R.color.white));
@@ -347,7 +356,7 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
                   ivScanPallet.setImageResource(R.drawable.fullscreen_img);
               }
 
-              break;
+              break;*/
 
 
             case R.id.btnGo:
@@ -365,6 +374,7 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
 
                     // To get Putaway suggestions
                     getItemTOPutAway();
+                    GetBinToBinStorageLocations();
 
                 } else {
                     common.showUserDefinedAlertType(errorMessages.EMC_0051, getActivity(), getContext(), "Error");
@@ -375,21 +385,7 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
             case R.id.btnClear:
 
                 // Clears the UI
-
-                isLocationScanned=false;
-                isContainerScanned=false;
-
-                cvScanLocation.setCardBackgroundColor(getResources().getColor(R.color.skuColor));
-                ivScanLocation.setImageResource(R.drawable.fullscreen_img);
-
-                cvScanPallet.setCardBackgroundColor(getResources().getColor(R.color.palletColor));
-                ivScanPallet.setImageResource(R.drawable.fullscreen_img);
-
-                cvScanSku.setCardBackgroundColor(getResources().getColor(R.color.skuColor));
-                ivScanSku.setImageResource(R.drawable.fullscreen_img);
-
-                etQty.setText("");
-                etScannedLocation.setText("");
+                    clearFields();
 
                 break;
 
@@ -419,8 +415,9 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
                 break;
 
             case R.id.btnPutaway:
-
-                if (SKU != null && SKU != "" && SKU.equalsIgnoreCase(lblSKU.getText().toString())) {
+                // removing this condation for now because for any item he can do putaway
+                   //&& SKU.equalsIgnoreCase(lblSKU.getText().toString())
+                if (SKU != null && SKU != "" ) {
 
                     if (!etQty.getText().toString().equals("0") && !etQty.getText().toString().isEmpty()) {
                         // Inserting Item into the location
@@ -462,7 +459,6 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
                                         break;
 
                                     case DialogInterface.BUTTON_NEGATIVE:
-
                                         common.setIsPopupActive(false);
                                         break;
                                 }
@@ -573,16 +569,25 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
 
                 if(rlPutaway.getVisibility() == View.VISIBLE && !lblSKU.getText().toString().isEmpty()){
 
-                    if(isDockScanned){
+                   // if(isDockScanned){
 
-                        if(!isLocationScanned)
-                            ValidateLocation(scannedData);
+                        if(!isContainerScanned) {
+                            ValidatePallet(scannedData);
+                        }
+
                         else{
-                            if(!isContainerScanned)
-                                ValidatePallet(scannedData);
-                            else
+                            if(!isMaterialScanned) {
                                 ValiDateMaterial(scannedData);
+                            }
+                            else {
+                                if (!isLocationScanned) {
+                                    ValidateLocation(scannedData);
+                                }
+                                /*else {
+                                    ValidatePallet(scannedData);
 
+                                    }*/
+                            }
                         }
 
 
@@ -608,8 +613,8 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
                         return;
                     }*/
 
-                    }
-                    else{
+                  //  }
+                    /*else{
                         if (lblDock.getText().toString().equals(scannedData)) {
 
                             lblScannedDock.setText(scannedData);
@@ -622,7 +627,7 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
                             common.showUserDefinedAlertType(errorMessages.EMC_0019, getActivity(), getContext(), "Error");
                         }
 
-                    }
+                    }*/
 
                 }
             }
@@ -794,7 +799,7 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
             ScanDTO scanDTO = new ScanDTO();
             scanDTO.setUserID(userId);
             scanDTO.setAccountID(accountId);
-            // scanDTO.setTenantID(String.valueOf(tenantID));
+            //scanDTO.setTenantID(String.valueOf(tenantID));
             //scanDTO.setWarehouseID(String.valueOf(warehouseID));
             scanDTO.setScanInput(scannedData);
             scanDTO.setInboundID(inboundId);
@@ -883,7 +888,7 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
 
                                     lineNo = scanDTO1.getLineNumber();
                                     //.setText(Materialcode);
-
+                                    GetAvailbleQtyList();
 
                                     //   etMRP.setText(scannedData.split("[|]")[7]);
 
@@ -906,12 +911,12 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
                                             checkPutAwayItemQty();
 
                                             return;
-                                        } else {
+                                        } /*else {
 
                                             // Checking putaway Qty. against to the putaway
                                             checkPutAwayItemQtyforManualMode();
 
-                                        }
+                                        }*/
                                     }
 
                                 } else{
@@ -1024,18 +1029,34 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
                             ScanDTO scanDTO1=new ScanDTO(_lResult.entrySet());
                             ProgressDialogUtils.closeProgressDialog();
                             if(scanDTO1!=null){
-                                if(scanDTO1.getScanResult()){
-                                    lblContainer.setText(scannedData);
-                                    //ValidatePalletCode();
-                                    isContainerScanned = true;
-                                    cvScanPallet.setCardBackgroundColor(getResources().getColor(R.color.white));
-                                    ivScanPallet.setImageResource(R.drawable.check);
-                                } else{
-                                    isContainerScanned=false;
-                                    lblContainer.setText("");
-                                    cvScanPallet.setCardBackgroundColor(getResources().getColor(R.color.white));
-                                    ivScanPallet.setImageResource(R.drawable.warning_img);
-                                    common.showUserDefinedAlertType(errorMessages.EMC_0009, getActivity(), getContext(), "Warning");
+                                if (!isContainerScanned) {
+                                    if (scanDTO1.getScanResult()) {
+                                        lblContainer.setText(scannedData);
+                                        //ValidatePalletCode();
+                                        isContainerScanned = true;
+                                        cvScanPallet.setCardBackgroundColor(getResources().getColor(R.color.white));
+                                        ivScanPallet.setImageResource(R.drawable.check);
+                                    } else {
+                                        isContainerScanned = false;
+                                        lblContainer.setText("");
+                                        cvScanPallet.setCardBackgroundColor(getResources().getColor(R.color.white));
+                                        ivScanPallet.setImageResource(R.drawable.warning_img);
+                                        common.showUserDefinedAlertType(errorMessages.EMC_0009, getActivity(), getContext(), "Warning");
+                                    }
+                                }
+                                else {
+                                    if (scanDTO1.getScanResult()) {
+                                        etToPallet.setText(scannedData);
+                                        cvScanTopallet.setCardBackgroundColor(getResources().getColor(R.color.white));
+                                        ivScanTopallet.setImageResource(R.drawable.check);
+                                    }
+                                    else {
+                                        etToPallet.setText("");
+                                        cvScanTopallet.setCardBackgroundColor(getResources().getColor(R.color.white));
+                                        ivScanTopallet.setImageResource(R.drawable.warning_img);
+                                        common.showUserDefinedAlertType(errorMessages.EMC_0009, getActivity(), getContext(), "Warning");
+                                    }
+
                                 }
                             }else{
                                 isContainerScanned=false;
@@ -1531,7 +1552,7 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
 
                                             lblContainer.setText(dto.getCartonCode());
                                         }
-                                        lblSuggestedLoc.setText(dto.getLocation());
+                                      //  lblSuggestedLoc.setText(dto.getLocation());
                                         lblSKU.setText(dto.getMCode());
                                         etBatch.setText(dto.getBatchNo());
                                         etSerial.setText(dto.getSerialNo());
@@ -1898,11 +1919,19 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
         putawayDTO.setSerialNo(etSerial.getText().toString());
         putawayDTO.setPutAwayQty(etQty.getText().toString());
         putawayDTO.setUserID(userId);
-        putawayDTO.setCartonCode(lblContainer.getText().toString());
+        if (storageloc.equalsIgnoreCase("SLOC")) {
+            putawayDTO.setStorageCode("");
+        } else {
+            putawayDTO.setStorageCode(storageloc);
+        }
+     //  if (etToPallet.getText().toString().equals("") || etToPallet.getText().toString().isEmpty()){
+         putawayDTO.setCartonCode(lblContainer.getText().toString());
+      // }
+       // putawayDTO.setCartonCode(etToPallet.getText().toString());
         putawayDTO.setLocation(lblSuggestedLoc.getText().toString());
         putawayDTO.setScannedLocation(etScannedLocation.getText().toString());
         putawayDTO.setTotalQty(totalQty);
-        putawayDTO.setDock(lblScannedDock.getText().toString());
+        putawayDTO.setDock("Dock-1");
 
         message.setEntityObject(putawayDTO);
 
@@ -1948,9 +1977,11 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
                                 _lExceptions = (List<LinkedTreeMap<?, ?>>) core.getEntityObject();
 
                                 WMSExceptionMessage owmsExceptionMessage = null;
-
+                                cvScanLocation.setCardBackgroundColor(getResources().getColor(R.color.skuColor));
+                                ivScanLocation.setImageResource(R.drawable.fullscreen_img);
                                 cvScanSku.setCardBackgroundColor(getResources().getColor(R.color.white));
                                 ivScanSku.setImageResource(R.drawable.warning_img);
+                                isMaterialScanned=false;
 
                                 for (int i = 0; i < _lExceptions.size(); i++) {
 
@@ -1959,7 +1990,7 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
                                 }
 
                                 getItemTOPutAway();
-
+                                clearFields();
                                 SKU = "";
 
                                 ProgressDialogUtils.closeProgressDialog();
@@ -2034,7 +2065,7 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
 
                                         cvScanSku.setCardBackgroundColor(getResources().getColor(R.color.skuColor));
                                         ivScanSku.setImageResource(R.drawable.fullscreen_img);
-
+                                              clearFields();
                                         returningObj = dto;
                                         return;
 
@@ -2070,7 +2101,7 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
 
                                         cvScanSku.setCardBackgroundColor(getResources().getColor(R.color.skuColor));
                                         ivScanSku.setImageResource(R.drawable.fullscreen_img);
-
+                                           clearFields();
                                         returningObj = dto;
 
                                         if (dto.getSuggestedReceivedQty().equals("0") && dto.getSuggestedQty().equals("0")) {
@@ -2087,6 +2118,8 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
 
                                             cvScanLocation.setCardBackgroundColor(getResources().getColor(R.color.locationColor));
                                             ivScanLocation.setImageResource(R.drawable.fullscreen_img);
+                                            cvScanTopallet.setCardBackgroundColor(getResources().getColor(R.color.locationColor));
+                                            ivScanTopallet.setImageResource(R.drawable.fullscreen_img);
 
                                             etScannedLocation.setText("");
                                             lblContainer.setText("");
@@ -2102,9 +2135,11 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
                                             etMRP.setText("");
                                             etProjectRef.setText("");
 
-
-
+                                            etToPallet.setText("");
+                                            spinnerSelectSloc.setEnabled(false);
+                                            spinnerSelectSloc.setAdapter(arrayAdapter1);
                                             common.showUserDefinedAlertType(errorMessages.EMC_0074 + "" + refNo, getActivity(), getContext(), "Success");
+                                            clearFields();
                                             return;
 
                                         }
@@ -2628,4 +2663,323 @@ public class PutawayFragment extends Fragment implements View.OnClickListener, B
         super.onDestroyView();
 
     }
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        storageloc = spinnerSelectSloc.getSelectedItem().toString();
+        if (!storageloc.equalsIgnoreCase("SLOC")) {
+            GetAvailbleQtyList();
+        }
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+    public void GetAvailbleQtyList() {
+        try {
+            WMSCoreMessage message = new WMSCoreMessage();
+            message = common.SetAuthentication(EndpointConstants.Inventory, getContext());
+            InventoryDTO inventoryDTO = new InventoryDTO();
+             inventoryDTO.setInboundId(inboundId);
+            inventoryDTO.setUserId(userId);
+            inventoryDTO.setAccountId(accountId);
+            inventoryDTO.setMaterialCode(SKU);
+            if (storageloc.equalsIgnoreCase("SLOC")) {
+                inventoryDTO.setSLOC("");
+            } else {
+                inventoryDTO.setSLOC(storageloc);
+            }
+            inventoryDTO.setLocationCode("Dock-1");
+            inventoryDTO.setContainerCode(lblContainer.getText().toString());
+            inventoryDTO.setMfgDate(etMfgDate.getText().toString());
+            inventoryDTO.setExpDate(etExpDate.getText().toString());
+            inventoryDTO.setSerialNo(etSerial.getText().toString());
+            inventoryDTO.setBatchNo(etBatch.getText().toString());
+            inventoryDTO.setProjectNo(etProjectRef.getText().toString());
+            inventoryDTO.setMRP(etMRP.getText().toString());
+            //inventoryDTO.setTenantID();
+            //inventoryDTO.setWarehouseId(whId);
+
+            message.setEntityObject(inventoryDTO);
+            Call<String> call = null;
+            ApiInterface apiService = RetrofitBuilderHttpsEx.getInstance(getActivity()).create(ApiInterface.class);
+            try {
+                //Checking for Internet Connectivity
+                // if (NetworkUtils.isInternetAvailable()) {
+                // Calling the Interface method
+                ProgressDialogUtils.showProgressDialog("Please Wait");
+                call = apiService.GetAvailbleQtyList(message);
+                // } else {
+                // DialogUtils.showAlertDialog(getActivity(), "Please enable internet");
+                // return;
+                // }
+            } catch (Exception ex) {
+                try {
+                    exceptionLoggerUtils.createExceptionLog(ex.toString(), classCode, "001_01", getActivity());
+                    logException();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                ProgressDialogUtils.closeProgressDialog();
+                DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0002);
+            }
+            try {
+                //Getting response from the method
+                call.enqueue(new Callback<String>() {
+
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+                        try {
+
+                            if (response.body() != null) {
+
+                                core = gson.fromJson(response.body().toString(), WMSCoreMessage.class);
+                                if ((core.getType().toString().equals("Exception"))) {
+                                    List<LinkedTreeMap<?, ?>> _lExceptions = new ArrayList<LinkedTreeMap<?, ?>>();
+                                    _lExceptions = (List<LinkedTreeMap<?, ?>>) core.getEntityObject();
+                                    WMSExceptionMessage owmsExceptionMessage = null;
+                                    for (int i = 0; i < _lExceptions.size(); i++) {
+                                        owmsExceptionMessage = new WMSExceptionMessage(_lExceptions.get(i).entrySet());
+                                        ProgressDialogUtils.closeProgressDialog();
+
+                                        etQty.setEnabled(false);
+                                        etQty.setText("");
+
+                                       // isMaterialScanned = false;
+                                        //etQty.setText("");
+                                        spinnerSelectSloc.setEnabled(true);
+                                        cvScanSku.setCardBackgroundColor(getResources().getColor(R.color.white));
+                                        ivScanSku.setImageResource(R.drawable.invalid_cross);
+
+                                        etMRP.setText("");
+                                        etSerial.setText("");
+                                        etBatch.setText("");
+                                        etMfgDate.setText("");
+                                        etExpDate.setText("");
+                                        etProjectRef.setText("");
+                                        //etSku.setText("");
+
+                                        GetBinToBinStorageLocations();
+                                        common.showAlertType(owmsExceptionMessage, getActivity(), getContext());
+                                        return;
+                                    }
+                                } else {
+                                    List<LinkedTreeMap<?, ?>> _lstPickitem = new ArrayList<LinkedTreeMap<?, ?>>();
+                                    _lstPickitem = (List<LinkedTreeMap<?, ?>>) core.getEntityObject();
+                                    List<OutbountDTO> _lstOutboundDTO = new ArrayList<OutbountDTO>();
+                                    InventoryDTO oOutboundDTO = null;
+                                    for (int i = 0; i < _lstPickitem.size(); i++) {
+                                        oOutboundDTO = new InventoryDTO(_lstPickitem.get(i).entrySet());
+                                    }
+                                    etQty.setText(oOutboundDTO.getQuantity());
+
+
+                                    if (scanType.equalsIgnoreCase("Auto")) {
+                                        etQty.setText("1");
+                                        isMaterialScanned = true;
+                                       // UpsertBinToBinTransfer();
+                                    } else {
+                                        etQty.setEnabled(true);
+                                        isMaterialScanned = true;
+                                    }
+
+
+                                    cvScanSku.setCardBackgroundColor(getResources().getColor(R.color.white));
+                                    ivScanSku.setImageResource(R.drawable.check);
+
+                                    spinnerSelectSloc.setEnabled(true);
+
+                                    ProgressDialogUtils.closeProgressDialog();
+
+
+                                }
+                            } else {
+                                ProgressDialogUtils.closeProgressDialog();
+
+                            }
+                        } catch (Exception ex) {
+                            try {
+                                exceptionLoggerUtils.createExceptionLog(ex.toString(), classCode, "001_02", getActivity());
+                                logException();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            ProgressDialogUtils.closeProgressDialog();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable throwable) {
+                        ProgressDialogUtils.closeProgressDialog();
+                        DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0001);
+                    }
+                });
+            } catch (Exception ex) {
+                try {
+                    exceptionLoggerUtils.createExceptionLog(ex.toString(), classCode, "001_03", getActivity());
+                    logException();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                ProgressDialogUtils.closeProgressDialog();
+                DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0001);
+            }
+        } catch (Exception ex) {
+            try {
+                exceptionLoggerUtils.createExceptionLog(ex.toString(), classCode, "001_04", getActivity());
+                logException();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            ProgressDialogUtils.closeProgressDialog();
+            DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0013);
+        }
+    }
+
+
+    public void GetBinToBinStorageLocations() {
+        try {
+            WMSCoreMessage message = new WMSCoreMessage();
+            message = common.SetAuthentication(EndpointConstants.Inventory, getContext());
+            InventoryDTO inboundDTO = new InventoryDTO();
+            inboundDTO.setUserId(userId);
+            inboundDTO.setAccountID(accountId);
+            message.setEntityObject(inboundDTO);
+
+            Call<String> call = null;
+            ApiInterface apiService = RetrofitBuilderHttpsEx.getInstance(getActivity()).create(ApiInterface.class);
+
+            try {
+                //Checking for Internet Connectivity
+                // if (NetworkUtils.isInternetAvailable()) {
+                // Calling the Interface method
+                call = apiService.GetBinToBinStorageLocations(message);
+                ProgressDialogUtils.showProgressDialog("Please Wait");
+                // } else {
+                // DialogUtils.showAlertDialog(getActivity(), "Please enable internet");
+                // return;
+                // }
+            } catch (Exception ex) {
+                try {
+                    exceptionLoggerUtils.createExceptionLog(ex.toString(), classCode, "001_01", getActivity());
+                    logException();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                ProgressDialogUtils.closeProgressDialog();
+                common.showUserDefinedAlertType(errorMessages.EMC_0002, getActivity(), getContext(), "Error");
+            }
+
+            try {
+                //Getting response from the method
+                call.enqueue(new Callback<String>() {
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+                        try {
+                            core = gson.fromJson(response.body().toString(), WMSCoreMessage.class);
+                            if ((core.getType().toString().equals("Exception"))) {
+                                List<LinkedTreeMap<?, ?>> _lExceptions = new ArrayList<LinkedTreeMap<?, ?>>();
+                                _lExceptions = (List<LinkedTreeMap<?, ?>>) core.getEntityObject();
+                                WMSExceptionMessage owmsExceptionMessage = null;
+                                for (int i = 0; i < _lExceptions.size(); i++) {
+                                    owmsExceptionMessage = new WMSExceptionMessage(_lExceptions.get(i).entrySet());
+                                }
+                                ProgressDialogUtils.closeProgressDialog();
+                                DialogUtils.showAlertDialog(getActivity(), owmsExceptionMessage.getWMSMessage());
+                            } else {
+                                ProgressDialogUtils.closeProgressDialog();
+                                List<LinkedTreeMap<?, ?>> _lstInbound = new ArrayList<LinkedTreeMap<?, ?>>();
+                                _lstInbound = (List<LinkedTreeMap<?, ?>>) core.getEntityObject();
+
+                                List<InventoryDTO> lstDto = new ArrayList<>();
+                                List<String> lstInboundNo = new ArrayList<>();
+                                for (int i = 0; i < _lstInbound.size(); i++) {
+                                    InventoryDTO oInbound = new InventoryDTO(_lstInbound.get(i).entrySet());
+                                    lstDto.add(oInbound);
+                                }
+
+                                lstInboundNo.add("SLOC");
+
+                                for (int i = 0; i < lstDto.size(); i++) {
+                                    lstInboundNo.add(lstDto.get(i).getLocationCode());
+                                }
+
+
+                                arrayAdapter1 = new ArrayAdapter(getActivity(), R.layout.support_simple_spinner_dropdown_item, lstInboundNo);
+                                spinnerSelectSloc.setAdapter(arrayAdapter1);
+                                ProgressDialogUtils.closeProgressDialog();
+                            }
+                        } catch (Exception ex) {
+                            try {
+                                exceptionLoggerUtils.createExceptionLog(ex.toString(), classCode, "001_02", getActivity());
+                                logException();
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            ProgressDialogUtils.closeProgressDialog();
+                        }
+                    }
+
+                    // response object fails
+                    @Override
+                    public void onFailure(Call<String> call, Throwable throwable) {
+                        //Toast.makeText(LoginActivity.this, throwable.toString(), Toast.LENGTH_LONG).show();
+                        ProgressDialogUtils.closeProgressDialog();
+                        common.showUserDefinedAlertType(errorMessages.EMC_0001, getActivity(), getContext(), "Error");
+                    }
+                });
+            } catch (Exception ex) {
+                try {
+                    exceptionLoggerUtils.createExceptionLog(ex.toString(), classCode, "001_03", getActivity());
+                    logException();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                ProgressDialogUtils.closeProgressDialog();
+                common.showUserDefinedAlertType(errorMessages.EMC_0001, getActivity(), getContext(), "Error");
+            }
+        } catch (Exception ex) {
+            try {
+                exceptionLoggerUtils.createExceptionLog(ex.toString(), classCode, "001_04", getActivity());
+                logException();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            ProgressDialogUtils.closeProgressDialog();
+            common.showUserDefinedAlertType(errorMessages.EMC_0003, getActivity(), getContext(), "Error");
+        }
+    }
+    public void clearFields(){
+        isLocationScanned=false;
+        isContainerScanned=false;
+        isMaterialScanned =false;
+        isPalletScanned =false;
+        cvScanLocation.setCardBackgroundColor(getResources().getColor(R.color.skuColor));
+        ivScanLocation.setImageResource(R.drawable.fullscreen_img);
+
+        cvScanPallet.setCardBackgroundColor(getResources().getColor(R.color.palletColor));
+        ivScanPallet.setImageResource(R.drawable.fullscreen_img);
+
+        cvScanSku.setCardBackgroundColor(getResources().getColor(R.color.skuColor));
+        ivScanSku.setImageResource(R.drawable.fullscreen_img);
+
+        etQty.setText("");
+        etScannedLocation.setText("");
+        etToPallet.setText("");
+        spinnerSelectSloc.setEnabled(false);
+        spinnerSelectSloc.setAdapter(arrayAdapter1);
+
+        etBatch.setText("");
+        etSerial.setText("");
+        etMfgDate.setText("");
+        etExpDate.setText("");
+        etProjectRef.setText("");
+
+        etMRP.setText("");
+        etToPallet.setText("");
+        cvScanTopallet.setCardBackgroundColor(getResources().getColor(R.color.palletColor));
+        ivScanTopallet.setImageResource(R.drawable.fullscreen_img);
+    }
+
 }

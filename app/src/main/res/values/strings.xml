@@ -16,7 +16,7 @@
     <string name="hintUser">Enter Username</string>
     <string name="hintPass">Enter Password</string>
 
-    <string name="selectStRef">St Ref. #</string>
+    <string name="selectStRef">Store Ref. No.</string>
     <string name="close">Close</string>
     <string name="cancel">Cancel</string>
     <string name="go">Go</string>
@@ -26,7 +26,7 @@
     <string name="scanPart">Scan Part#</string>
     <string name="pending">Pending</string>
     <string name="received">Received</string>
-    <string name="scanContainer">Scan Container</string>
+    <string name="scanContainer">Scan Pallet</string>
     <string name="back">Back</string>
 
     <string name="hintBatch">Batch#</string>
@@ -37,6 +37,7 @@
     <string name="hintKitId">Kit Id</string>
     <string name="hintQuantity">Enter Qty.</string>
     <string name="hintQty">Qty.</string>
+    <string name="hintTopallet">To Pallet</string>
     <string name="hintCCQty">CC Qty.</string>
     <string name="hintServiceURL">Service URL</string>
     <string name="serialNo">Serial No. :</string>
@@ -55,10 +56,11 @@
     <string name="suggestedLoc">Suggested Loc. </string>
     <string name="suggestedDock">Suggested Dock </string>
     <string name="scanLocation">Scan Location</string>
+    <string name="scantoPallet">To Pallet</string>
     <string name="suggestedQty">Sug. Qty </string>
     <string name="inbRec">INB Rec. </string>
     <string name="btnSkip">Skip</string>
-    <string name="transferComplete">Transfer Complete</string>
+    <string name="transferComplete">Transfer</string>
 
     <string name="menu_masterdata">Master Data</string>
     <string name="menu_orders">Orders</string>
@@ -87,6 +89,8 @@
     <string name="obdQty">OBD Qty.</string>
     <string name="pickedQty">Picked Qty.</string>
     <string name="scanToContainer">To Container</string>
+    <string name="scanTopallet">To Pallet</string>
+    <string name="scanfrompallet">From Pallet</string>
     <string name="scanFromContainer">Scan From Container</string>
     <string name="pick">Pick</string>
     <string name="selectOBD">select OBD #</string>
@@ -171,7 +175,7 @@
     <string name="complete">Complete</string>
     <string name="location">Location </string>
     <string name="material">Material </string>
-    <string name="scanToLocation">To Loc.</string>
+    <string name="scanToLocation">To Location</string>
 
     <string name="selectPickList">Pick List</string>
     <string name="pickListNo">Pick List:</string>

@@ -100,26 +100,28 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
         // Adding child data List one
         List<String> mainListInbound = new ArrayList<String>();
         mainListInbound.add("Receiving");
+        //
+      //  mainListInbound.add("Pallet Transfers");
+        mainListInbound.add("QC");
         mainListInbound.add("Putaway");
-        mainListInbound.add("Pallet Transfers");
 
         // Adding child data List two
         List<String> mainListOutbound  = new ArrayList<String>();
         mainListOutbound.add("OBD Picking");
         mainListOutbound.add("Packing");
-        mainListOutbound.add("Packing Info");
-        mainListOutbound.add("Load Generation");
-        mainListOutbound.add("Loading");
-        mainListOutbound.add("Outbound Revert");
+       mainListOutbound.add("Packing Info");
+       // mainListOutbound.add("Load Generation");
+       // mainListOutbound.add("Loading");
+      //  mainListOutbound.add("Outbound Revert");
 
         // Adding child data List three
         List<String> mainListHouseKeeping = new ArrayList<String>();
-
-        if(isSupervisor){
-            mainListHouseKeeping.add("Material Transfers");
-        }
-
         mainListHouseKeeping.add("Bin to Bin");
+    // removing the restriction and giving functionlity to all type of users
+       // if(isSupervisor){
+            mainListHouseKeeping.add("Material Transfers");
+       // }
+
         mainListHouseKeeping.add("Live Stock");
         mainListHouseKeeping.add("Cycle Count");
 
@@ -135,7 +137,6 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
                 setNavigationPage(text);
             }
         });
-
         expandable_list_view.setAdapter(listAdapter);
         expandable_list_view.expandGroup(0);
         expandable_list_view.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
@@ -151,8 +152,6 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
     }
 
     private void createListDataAuto() {
-
-
         listDataParent = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
 
@@ -164,26 +163,30 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
         // Adding child data List one
         List<String> mainListInbound = new ArrayList<String>();
         mainListInbound.add("Receiving");
+        //mainListInbound.add("Putaway");
+        //mainListInbound.add("Pallet Transfers");
+        mainListInbound.add("QC");
         mainListInbound.add("Putaway");
-        mainListInbound.add("Pallet Transfers");
+
 
         // Adding child data List two
         List<String> mainListOutbound  = new ArrayList<String>();
-       // mainListOutbound.add("OBD Picking");
+        mainListOutbound.add("OBD Picking");
         mainListOutbound.add("Packing");
         mainListOutbound.add("Packing Info");
-        mainListOutbound.add("Load Generation");
-        mainListOutbound.add("Loading");
+       // mainListOutbound.add("Load Generation");
+       // mainListOutbound.add("Loading");
 
         // Adding child data List three
         List<String> mainListHouseKeeping = new ArrayList<String>();
-        if(isSupervisor){
-            mainListHouseKeeping.add("Material Transfers");
-        }
         mainListHouseKeeping.add("Bin to Bin");
+        // removing the restriction and giving functionlity to all type of users
+        //if(isSupervisor){
+            mainListHouseKeeping.add("Material Transfers");
+        //}
+
         mainListHouseKeeping.add("Live Stock");
         mainListHouseKeeping.add("Cycle Count");
-
       //  listDataChild.put(listDataParent.get(0), mainListInbound); // Header, Child data
         listDataChild.put(listDataParent.get(0), mainListOutbound); // Header, Child data
        // listDataChild.put(listDataParent.get(2), mainListHouseKeeping); // Header, Child data
@@ -408,14 +411,19 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
                 FragmentUtils.replaceFragmentWithBackStack(getActivity(), R.id.container_body, new UnloadingFragment());
             }
             break;
-            case "Putaway": {
-                FragmentUtils.replaceFragmentWithBackStack(getActivity(), R.id.container_body, new PutawayFragment());
+            case "QC": {
+                FragmentUtils.replaceFragmentWithBackStack(getActivity(), R.id.container_body, new  QcFragment());
             }
             break;
-            case "Pallet Transfers": {
+
+            case "Putaway": {
                 FragmentUtils.replaceFragmentWithBackStack(getActivity(), R.id.container_body, new PalletTransfersFragment());
             }
             break;
+          /*  case "Pallet Transfers": {
+                FragmentUtils.replaceFragmentWithBackStack(getActivity(), R.id.container_body, new PalletTransfersFragment());
+            }
+            break;*/
             case "OBD Picking": {
                 FragmentUtils.replaceFragmentWithBackStack(getActivity(), R.id.container_body, new OBDPickingHeaderFragment());
             }
@@ -471,8 +479,9 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
                 menuList.add(new NavDrawerItem("Home", R.drawable.go));
                 // Inbound
                 menuList.add(new NavDrawerItem("Receiving", R.drawable.go));
+                menuList.add(new NavDrawerItem("QC", R.drawable.go));
                 menuList.add(new NavDrawerItem("Putaway", R.drawable.go));
-                menuList.add(new NavDrawerItem("Pallet Transfers", R.drawable.go));
+              // menuList.add(new NavDrawerItem("Pallet Transfers", R.drawable.go));
                 // Outbound
                 menuList.add(new NavDrawerItem("OBD Picking", R.drawable.go));
                 menuList.add(new NavDrawerItem("Packing", R.drawable.go));
@@ -580,7 +589,6 @@ public class DrawerFragment extends Fragment implements View.OnClickListener {
         public CounterBroadcastReceiver() {
 
         }
-
         @Override
         public void onReceive(Context context, Intent intent) {
 

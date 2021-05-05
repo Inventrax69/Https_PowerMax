@@ -268,7 +268,6 @@ public class InternalTransferFragment extends Fragment implements View.OnClickLi
 
         // To get tenants
         //getTenants();
-
         getWarehouse();
 
 

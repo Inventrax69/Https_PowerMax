@@ -99,14 +99,14 @@ public final class R {
         public static final int adjust_height = 0x7f08001c;
         public static final int adjust_width = 0x7f08001d;
         public static final int auto = 0x7f080021;
-        public static final int dark = 0x7f080073;
-        public static final int icon_only = 0x7f0800ae;
-        public static final int light = 0x7f08010a;
-        public static final int none = 0x7f08012d;
-        public static final int normal = 0x7f08012e;
-        public static final int standard = 0x7f0801a6;
-        public static final int wide = 0x7f08022d;
-        public static final int wrap_content = 0x7f080230;
+        public static final int dark = 0x7f080074;
+        public static final int icon_only = 0x7f0800b0;
+        public static final int light = 0x7f08010d;
+        public static final int none = 0x7f080130;
+        public static final int normal = 0x7f080131;
+        public static final int standard = 0x7f0801a9;
+        public static final int wide = 0x7f080236;
+        public static final int wrap_content = 0x7f080239;
     }
     public static final class integer {
         private integer() {}
@@ -151,8 +151,8 @@ public final class R {
         public static final int create_calendar_message = 0x7f0e005a;
         public static final int create_calendar_title = 0x7f0e005b;
         public static final int decline = 0x7f0e005e;
-        public static final int store_picture_message = 0x7f0e00f1;
-        public static final int store_picture_title = 0x7f0e00f2;
+        public static final int store_picture_message = 0x7f0e00f5;
+        public static final int store_picture_title = 0x7f0e00f6;
     }
     public static final class style {
         private style() {}

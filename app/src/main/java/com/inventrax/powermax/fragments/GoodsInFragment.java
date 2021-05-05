@@ -1052,7 +1052,6 @@ public class GoodsInFragment extends Fragment implements View.OnClickListener, B
                 }
                 ProgressDialogUtils.closeProgressDialog();
                 DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0002);
-
             }
             try {
                 //Getting response from the method

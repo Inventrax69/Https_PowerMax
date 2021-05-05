@@ -96,7 +96,7 @@ public class PalletTransfersFragment extends Fragment implements View.OnClickLis
     private String selectedTenant = "", selectedWH = "", tenantId = "", whId = "";
     List<HouseKeepingDTO> lstTenants = null;
     List<HouseKeepingDTO> lstWarehouse = null;
-    TextView txtWarehousetName,txtTendentName,txtFromPallet,txtLocation;
+    TextView txtWarehousetName,txtTendentName,txtFromPallet,txtLocation,sugloc;
     ListView sku_list;
     SDKAdapter adapter;
 
@@ -152,6 +152,7 @@ public class PalletTransfersFragment extends Fragment implements View.OnClickLis
 
         txtFromPallet = (TextView) rootView.findViewById(R.id.txtFromPallet);
         txtLocation = (TextView) rootView.findViewById(R.id.txtLocation);
+        sugloc = (TextView) rootView.findViewById(R.id.sugloc);
 
         lstTenants = new ArrayList<HouseKeepingDTO>();
         lstWarehouse = new ArrayList<HouseKeepingDTO>();
@@ -287,6 +288,7 @@ public class PalletTransfersFragment extends Fragment implements View.OnClickLis
 
         txtFromPallet.setText("");
         txtLocation.setText("");
+        sugloc.setText("");
         sku_list.setAdapter(null);
     }
 
@@ -325,7 +327,6 @@ public class PalletTransfersFragment extends Fragment implements View.OnClickLis
             } else {
                 if (!Common.isPopupActive()) {
                     common.showUserDefinedAlertType(errorMessages.EMC_080, getActivity(), getContext(), "Error");
-
                 }
                 soundUtils.alertWarning(getActivity(), getContext());
 
@@ -979,7 +980,7 @@ public class PalletTransfersFragment extends Fragment implements View.OnClickLis
                 // Toast.makeText(this, "Scanner unavailable", Toast.LENGTH_SHORT).show();
             }
         }
-        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.title_activity_pallet_transfer));
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.putaway));
     }
 
     @Override
@@ -1516,6 +1517,7 @@ public class PalletTransfersFragment extends Fragment implements View.OnClickLis
                                         for (int i = 0; i < _lInventory.size(); i++) {
                                             inventorydto = new InventoryDTO(_lInventory.get(i).entrySet());
                                             lstInventory.add(inventorydto);
+                                            sugloc.setText(lstInventory.get(i).getLocationCode());
                                         }
                                         loadList(lstInventory);
                                     } else {

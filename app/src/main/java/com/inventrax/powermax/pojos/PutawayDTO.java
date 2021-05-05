@@ -86,6 +86,10 @@ public class PutawayDTO {
     @SerializedName("HUSize")
     public String HUSize;
 
+    @SerializedName("ToCartonCode")
+    public String ToCartonCode;
+
+
     public PutawayDTO() {
     }
 
@@ -273,6 +277,12 @@ public class PutawayDTO {
                         this.setHUNo(entry.getValue().toString());
                     }
                     break;
+                case "ToCartonCode":
+                    if (entry.getValue() != null) {
+                        this.setToCartonCode(entry.getValue().toString());
+                    }
+                    break;
+
 
 
             }
@@ -559,4 +569,11 @@ public class PutawayDTO {
         ScannedLocation = scannedLocation;
     }
 
+    public String getToCartonCode() {
+        return ToCartonCode;
+    }
+
+    public void setToCartonCode(String toCartonCode) {
+        ToCartonCode = toCartonCode;
+    }
 }
