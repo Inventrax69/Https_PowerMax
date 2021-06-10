@@ -1,11 +1,11 @@
 #Internal package file, do not edit.
-#Wed May 05 09:34:25 IST 2021
-1.base=E\:\\Pandu\\Demo\\Https_PowerMax\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
+#Fri May 14 11:46:45 IST 2021
+1.base=D\:\\AndroidProjects\\Https_PowerMax\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY
 count=2
 1.set=DEX
 0.path=classes.dex
 0.set=DEX
-0.base=E\:\\Pandu\\Demo\\Https_PowerMax\\app\\build\\intermediates\\dex\\debug\\mergeDexDebug\\out
-1.path=classes2.dex
+0.base=D\:\\AndroidProjects\\Https_PowerMax\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
+1.path=classes.dex

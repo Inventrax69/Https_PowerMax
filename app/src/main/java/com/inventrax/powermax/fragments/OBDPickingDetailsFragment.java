@@ -632,6 +632,7 @@ public class OBDPickingDetailsFragment extends Fragment implements View.OnClickL
             //scanDTO.setWarehouseID(String.valueOf(warehouseID));
             scanDTO.setScanInput(scannedData);
             scanDTO.setObdNumber(lblPickListNo.getText().toString());
+            scanDTO.setHUNo(huNo);
             //inboundDTO.setIsOutbound("0");
             message.setEntityObject(scanDTO);
 
@@ -695,7 +696,7 @@ public class OBDPickingDetailsFragment extends Fragment implements View.OnClickL
 
                                 /* ----For RSN reference----
                                     0 Sku|1 BatchNo|2 SerialNO|3 MFGDate|4 EXpDate|5 ProjectRefNO|6 Kit Id|7 line No|8 MRP ---- For SKU with 9 MSP's
-
+g
                                     0 Sku|1 BatchNo|2 SerialNO|3 KitId|4 lineNo  ---- For SKU with 5 MSP's   *//*
                                     // Eg. : ToyCar|1|bat1|ser123|12/2/2018|12/2/2019|0|001*/
 

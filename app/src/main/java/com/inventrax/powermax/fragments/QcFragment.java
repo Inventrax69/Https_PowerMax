@@ -345,6 +345,10 @@ public class QcFragment extends Fragment implements View.OnClickListener, Barcod
                     common.showUserDefinedAlertType("Transferred Qty must be less than or equals to Available Qty", getActivity(), getContext(), "Error");
                     return;
                 }
+                if(etToPallet.getText().toString().isEmpty() || etToPallet.getText().toString().equals("")){
+                    common.showUserDefinedAlertType("Please scan to Pallet ", getActivity(), getContext(), "Error");
+                    return;
+                }
 
                UpdateMaterialTransfer();
 

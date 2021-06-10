@@ -1580,6 +1580,7 @@ id rlReceive
 id rlSelect
 id rlSelectOBD
 id rlSelectVLPD
+id rlSelectWh
 id rlSkip
 id rlSorting
 id rlStRefSelect
@@ -1885,6 +1886,7 @@ layout fragment_qc
 layout fragment_settings
 layout fragment_sorting
 layout fragment_stock_transfer_picking
+layout fragment_stocktake
 layout fragment_transfer
 layout fragment_transfer_putaway
 layout fragment_unloading

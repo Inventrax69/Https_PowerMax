@@ -1,48 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Pandu\\Demo\\Https_PowerMax\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
+            "outputFile": "D:\\AndroidProjects\\Https_PowerMax\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
             "map": [
                 {
-                    "source": "E:\\Pandu\\Demo\\Https_PowerMax\\app\\src\\main\\res\\values-v21\\styles.xml",
+                    "source": "D:\\AndroidProjects\\Https_PowerMax\\app\\src\\main\\res\\values-v21\\strings.xml",
                     "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "59",
-                        "endLines": "8",
-                        "endColumns": "12",
-                        "endOffsets": "399"
+                        "startLines": "8,5,6,4,7,3,2,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "363,214,275,169,320,116,57,406",
+                        "endColumns": "41,59,43,43,41,51,57,57",
+                        "endOffsets": "400,269,314,208,357,163,110,459"
                     },
                     "to": {
-                        "startLines": "14",
-                        "startColumns": "4",
-                        "startOffsets": "754",
-                        "endLines": "19",
-                        "endColumns": "12",
-                        "endOffsets": "1089"
+                        "startLines": "6,7,8,9,10,11,12,13",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "354,396,456,500,544,586,638,696",
+                        "endColumns": "41,59,43,43,41,51,57,57",
+                        "endOffsets": "391,451,495,539,581,633,691,749"
                     }
                 },
                 {
-                    "source": "C:\\Users\\Padmaja.B\\.gradle\\caches\\transforms-2\\files-2.1\\567da5cd130a93f31806b4398b2b7acb\\res\\values-v21\\values-v21.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "4",
-                        "endColumns": "12",
-                        "endOffsets": "248"
-                    },
-                    "to": {
-                        "startLines": "301",
-                        "startColumns": "4",
-                        "startOffsets": "21707",
-                        "endLines": "303",
-                        "endColumns": "12",
-                        "endOffsets": "21900"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Padmaja.B\\.gradle\\caches\\transforms-2\\files-2.1\\36b45715aad524966d32472a0869ef19\\res\\values-v21\\values-v21.xml",
+                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\c02dc7ec2155d8e0749abd7b889a5ed8\\res\\values-v21\\values-v21.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,21,23,24,25,26,28,30,31,32,33,34,36,38,40,42,44,46,47,52,54,56,57,58,60,62,63,64,65,66,67,111,114,158,161,164,166,168,170,173,175,178,179,180,183,184,185,186,187,188,191,192,194,196,198,200,204,206,207,208,209,211,215,217,219,220,221,222,223,225,226,227,237,238,239,251,263,264,265,268,271,272,275,276,279,282",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -61,20 +40,41 @@
                     }
                 },
                 {
-                    "source": "E:\\Pandu\\Demo\\Https_PowerMax\\app\\src\\main\\res\\values-v21\\strings.xml",
+                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\80f0ddb1ff8e0f28270fb8c345a48d85\\res\\values-v21\\values-v21.xml",
                     "from": {
-                        "startLines": "8,5,6,4,7,3,2,9",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "363,214,275,169,320,116,57,406",
-                        "endColumns": "41,59,43,43,41,51,57,57",
-                        "endOffsets": "400,269,314,208,357,163,110,459"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "248"
                     },
                     "to": {
-                        "startLines": "6,7,8,9,10,11,12,13",
-                        "startColumns": "4,4,4,4,4,4,4,4",
-                        "startOffsets": "354,396,456,500,544,586,638,696",
-                        "endColumns": "41,59,43,43,41,51,57,57",
-                        "endOffsets": "391,451,495,539,581,633,691,749"
+                        "startLines": "301",
+                        "startColumns": "4",
+                        "startOffsets": "21707",
+                        "endLines": "303",
+                        "endColumns": "12",
+                        "endOffsets": "21900"
+                    }
+                },
+                {
+                    "source": "D:\\AndroidProjects\\Https_PowerMax\\app\\src\\main\\res\\values-v21\\styles.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "59",
+                        "endLines": "8",
+                        "endColumns": "12",
+                        "endOffsets": "399"
+                    },
+                    "to": {
+                        "startLines": "14",
+                        "startColumns": "4",
+                        "startOffsets": "754",
+                        "endLines": "19",
+                        "endColumns": "12",
+                        "endOffsets": "1089"
                     }
                 }
             ]

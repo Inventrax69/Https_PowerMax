@@ -104,9 +104,9 @@ public final class R {
         public static final int light = 0x7f08010d;
         public static final int none = 0x7f080130;
         public static final int normal = 0x7f080131;
-        public static final int standard = 0x7f0801a9;
-        public static final int wide = 0x7f080236;
-        public static final int wrap_content = 0x7f080239;
+        public static final int standard = 0x7f0801aa;
+        public static final int wide = 0x7f080237;
+        public static final int wrap_content = 0x7f08023a;
     }
     public static final class integer {
         private integer() {}

@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.internal.LinkedTreeMap;
+import com.honeywell.aidc.ScannerUnavailableException;
 import com.inventrax.powermax.R;
 import com.inventrax.powermax.common.Common;
 import com.inventrax.powermax.common.constants.EndpointConstants;
@@ -544,6 +546,19 @@ public class UnloadingFragment extends Fragment implements View.OnClickListener 
         }
 
     }*/
+@Override
+public void onResume() {
+    super.onResume();
 
+    /*if (barcodeReader != null) {
+        try {
+            barcodeReader.claim();
+        } catch (ScannerUnavailableException e) {
+            e.printStackTrace();
+            // Toast.makeText(this, "Scanner unavailable", Toast.LENGTH_SHORT).show();
+        }
+    }*/
+    ((AppCompatActivity) getActivity()).getSupportActionBar().setTitle(getString(R.string.title_activity_goodsIn));
+}
 }
 
