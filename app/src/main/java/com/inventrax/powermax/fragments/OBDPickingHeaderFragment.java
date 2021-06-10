@@ -845,7 +845,7 @@ public class OBDPickingHeaderFragment extends Fragment implements View.OnClickLi
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        pickRefNo = spinnerSelectPickList.getSelectedItem().toString().split("[-]", 2)[0];
+        pickRefNo = spinnerSelectPickList.getSelectedItem().toString();
         pickobdId = lstObdIds.get(position).toString();
     }
 
