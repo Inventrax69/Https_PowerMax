@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AndroidProjects\\Https_PowerMax\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mn-rMN\\values-mn-rMN.xml",
+            "outputFile": "D:\\Pandu\\Demo\\Https_PowerMax\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mn-rMN\\values-mn-rMN.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\14bca8a00635ac472cf6f8ae38b9f8f1\\res\\values-mn-rMN\\base_strings.xml",
+                    "source": "C:\\Users\\padmaja.b\\.gradle\\caches\\transforms-2\\files-2.1\\16aeaae754366b96b40a3052e7cb1de7\\res\\values-mn-rMN\\common_strings.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "170",
+                        "endColumns": "259",
+                        "endOffsets": "425"
+                    },
+                    "to": {
+                        "startLines": "38",
+                        "startColumns": "4",
+                        "startOffsets": "4802",
+                        "endColumns": "255",
+                        "endOffsets": "5053"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\padmaja.b\\.gradle\\caches\\transforms-2\\files-2.1\\6966f659568752c40074c2e94d0a10c5\\res\\values-mn-rMN\\base_strings.xml",
                     "from": {
                         "startLines": "24,10,9,8,7,5,6,4,19,18,17,16,3,28,27,26,25,21,20,22,12,11,15,14,13,23,29,30",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\c02dc7ec2155d8e0749abd7b889a5ed8\\res\\values-mn-rMN\\values-mn-rMN.xml",
+                    "source": "C:\\Users\\padmaja.b\\.gradle\\caches\\transforms-2\\files-2.1\\79eeb30bb90cfc19a164387d323d89e1\\res\\values-mn-rMN\\values-mn-rMN.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -35,23 +52,6 @@
                         "startOffsets": "105,218,326,449,549,662,749,855,967,1049,1131,1213,1322,1426,1523,1631,1732,1835,1957,6721,6802",
                         "endColumns": "112,107,122,99,112,86,105,111,81,81,81,108,103,96,107,100,102,121,96,80,100",
                         "endOffsets": "213,321,444,544,657,744,850,962,1044,1126,1208,1317,1421,1518,1626,1727,1830,1952,2049,6797,6898"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\6b60268c11eaa4103e92efa86e7a290a\\res\\values-mn-rMN\\common_strings.xml",
-                    "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "170",
-                        "endColumns": "259",
-                        "endOffsets": "425"
-                    },
-                    "to": {
-                        "startLines": "38",
-                        "startColumns": "4",
-                        "startOffsets": "4802",
-                        "endColumns": "255",
-                        "endOffsets": "5053"
                     }
                 }
             ]

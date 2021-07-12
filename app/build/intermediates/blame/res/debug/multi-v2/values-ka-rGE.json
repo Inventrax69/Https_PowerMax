@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "D:\\AndroidProjects\\Https_PowerMax\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ka-rGE\\values-ka-rGE.xml",
+            "outputFile": "D:\\Pandu\\Demo\\Https_PowerMax\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ka-rGE\\values-ka-rGE.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\c02dc7ec2155d8e0749abd7b889a5ed8\\res\\values-ka-rGE\\values-ka-rGE.xml",
+                    "source": "C:\\Users\\padmaja.b\\.gradle\\caches\\transforms-2\\files-2.1\\16aeaae754366b96b40a3052e7cb1de7\\res\\values-ka-rGE\\common_strings.xml",
+                    "from": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "170",
+                        "endColumns": "253",
+                        "endOffsets": "419"
+                    },
+                    "to": {
+                        "startLines": "38",
+                        "startColumns": "4",
+                        "startOffsets": "4839",
+                        "endColumns": "249",
+                        "endOffsets": "5084"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\padmaja.b\\.gradle\\caches\\transforms-2\\files-2.1\\79eeb30bb90cfc19a164387d323d89e1\\res\\values-ka-rGE\\values-ka-rGE.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -21,7 +38,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\14bca8a00635ac472cf6f8ae38b9f8f1\\res\\values-ka-rGE\\base_strings.xml",
+                    "source": "C:\\Users\\padmaja.b\\.gradle\\caches\\transforms-2\\files-2.1\\6966f659568752c40074c2e94d0a10c5\\res\\values-ka-rGE\\base_strings.xml",
                     "from": {
                         "startLines": "24,10,9,8,7,5,6,4,19,18,17,16,3,28,27,26,25,21,20,22,12,11,15,14,13,23,29,30",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -35,23 +52,6 @@
                         "startOffsets": "2074,2348,2479,2660,2790,2927,3142,3357,3493,3681,3805,3978,4099,4237,4409,4538,4712,5089,5369,5493,5603,5790,5920,6140,6276,6445,6540,6631",
                         "endColumns": "273,130,180,129,136,214,214,135,187,123,172,120,137,171,128,173,126,279,123,109,186,129,219,135,168,94,90,105",
                         "endOffsets": "2343,2474,2655,2785,2922,3137,3352,3488,3676,3800,3973,4094,4232,4404,4533,4707,4834,5364,5488,5598,5785,5915,6135,6271,6440,6535,6626,6732"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Nagendra.b\\.gradle\\caches\\transforms-2\\files-2.1\\6b60268c11eaa4103e92efa86e7a290a\\res\\values-ka-rGE\\common_strings.xml",
-                    "from": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "170",
-                        "endColumns": "253",
-                        "endOffsets": "419"
-                    },
-                    "to": {
-                        "startLines": "38",
-                        "startColumns": "4",
-                        "startOffsets": "4839",
-                        "endColumns": "249",
-                        "endOffsets": "5084"
                     }
                 }
             ]

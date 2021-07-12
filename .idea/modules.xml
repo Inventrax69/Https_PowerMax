@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Https_PowerMax.iml" filepath="$PROJECT_DIR$/Https_PowerMax.iml" group="Https_PowerMax" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/app.iml" group="Https_PowerMax/app" />
+      <module fileurl="file://$PROJECT_DIR$/Https_PowerMax.iml" filepath="$PROJECT_DIR$/Https_PowerMax.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Https_PowerMax.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Https_PowerMax.app.iml" />
     </modules>
   </component>
 </project>

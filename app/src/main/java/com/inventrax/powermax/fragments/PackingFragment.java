@@ -1446,14 +1446,18 @@ public class PackingFragment extends Fragment implements View.OnClickListener, B
                                                 UpsertPackItem();
 
                                             } else {
-                                                DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0073);
-                                                lblReceivedQty.setText("");
+                                                //DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0073);
+                                                lblReceivedQty.setText("1");
                                                 lblReceivedQty.clearFocus();
                                                 lblReceivedQty.setEnabled(true);
 
                                                 lblPackingType.setText("");
                                                 lblPackingType.clearFocus();
                                                 lblPackingType.setEnabled(true);
+
+
+                                                cvScanSku.setCardBackgroundColor(getResources().getColor(R.color.white));
+                                                ivScanSku.setImageResource(R.drawable.check);
 
                                             }
 

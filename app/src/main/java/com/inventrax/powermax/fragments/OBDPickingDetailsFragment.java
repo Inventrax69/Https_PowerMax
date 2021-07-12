@@ -727,8 +727,11 @@ g
                                             } else {
                                                 lblReceivedQty.setEnabled(true);
                                                 btnPick.setEnabled(true);
-                                                soundUtils.alertWarning(getActivity(), getContext());
-                                                DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0073);
+                                                lblReceivedQty.setText("1");
+                                                //soundUtils.alertWarning(getActivity(), getContext());
+                                                cvScanRSN.setCardBackgroundColor(getResources().getColor(R.color.white));
+                                                ivScanRSN.setImageResource(R.drawable.check);
+                                                //DialogUtils.showAlertDialog(getActivity(), errorMessages.EMC_0073);
                                             }
                                         } else {
                                             common.showUserDefinedAlertType(errorMessages.EMC_0079, getActivity(), getContext(), "Error");

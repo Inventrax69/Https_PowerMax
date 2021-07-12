@@ -2,10 +2,14 @@
   <library name="Gradle: com.android.support.test:rules:0.5@aar">
     <ANNOTATIONS>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/619252b6bc592022f9440c05bf495ceb/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ffaa0d933f8450bda860f14e70043c40/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/619252b6bc592022f9440c05bf495ceb/jars/classes.jar!/" />
       <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/619252b6bc592022f9440c05bf495ceb/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ffaa0d933f8450bda860f14e70043c40/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ffaa0d933f8450bda860f14e70043c40/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/ffaa0d933f8450bda860f14e70043c40/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support.test/rules/0.5/71c1df91db9f063a68e2e52a8568c9f3bd3c1c73/rules-0.5-javadoc.jar!/" />

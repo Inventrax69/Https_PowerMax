@@ -45,6 +45,7 @@ import com.inventrax.powermax.fragments.PackingFragment;
 import com.inventrax.powermax.fragments.PackingInfoFragment;
 import com.inventrax.powermax.fragments.PalletTransfersFragment;
 import com.inventrax.powermax.fragments.PutawayFragment;
+import com.inventrax.powermax.fragments.QcFragment;
 import com.inventrax.powermax.fragments.SortingFragment;
 import com.inventrax.powermax.fragments.StockTransferPutAway;
 import com.inventrax.powermax.fragments.UnloadingFragment;
@@ -232,6 +233,9 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
                 }
                 if (fragment != null && fragment.isVisible() && fragment instanceof MaterialTransferFragment) {
                     ((MaterialTransferFragment) fragment).myScannedData(MainActivity.this, ScannedData);
+                }
+                if (fragment != null && fragment.isVisible() && fragment instanceof QcFragment) {
+                    ((QcFragment) fragment).myScannedData(MainActivity.this, ScannedData);
                 }
             }
         }

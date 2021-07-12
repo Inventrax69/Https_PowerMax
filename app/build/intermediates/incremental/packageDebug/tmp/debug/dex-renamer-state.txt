@@ -1,7 +1,7 @@
-#Mon May 17 14:51:16 IST 2021
-base.0=D\:\\AndroidProjects\\Https_PowerMax\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
+#Thu Jun 17 17:21:51 IST 2021
+base.1=D\:\\Pandu\\Demo\\Https_PowerMax\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out
 path.1=classes.dex
+base.0=D\:\\Pandu\\Demo\\Https_PowerMax\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out
 renamed.1=classes2.dex
-path.0=classes.dex
 renamed.0=classes.dex
-base.1=D\:\\AndroidProjects\\Https_PowerMax\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out
+path.0=classes.dex
