@@ -104,23 +104,23 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
         if (isKeyBoardOpen) {
 */
 
-            if (e.getAction() == KeyEvent.ACTION_DOWN && e.getKeyCode() != KeyEvent.KEYCODE_ENTER) {
-                // Log.i(TAG,"dispatchKeyEvent: "+e.toString());
-                char pressedKey = (char) e.getUnicodeChar();
-                //barcode += String.valueOf(pressedKey);
+        if (e.getAction() == KeyEvent.ACTION_DOWN && e.getKeyCode() != KeyEvent.KEYCODE_ENTER) {
+            // Log.i(TAG,"dispatchKeyEvent: "+e.toString());
+            char pressedKey = (char) e.getUnicodeChar();
+            //barcode += String.valueOf(pressedKey);
 /*            if(Character.isLetter(pressedKey) || Character.isDigit(pressedKey)){
                 barcode = new StringBuilder(barcode).append(pressedKey).toString();
             }*/
-                if (Character.toString(pressedKey).matches("^[a-zA-Z0-9!@#$&( )|_\\-`.+,/\"]*$")) {
-                    barcode = new StringBuilder(barcode).append(pressedKey).toString();
-                }
+            if (Character.toString(pressedKey).matches("^[a-zA-Z0-9!@#$&( )|_\\-`.+,/\"]*$")) {
+                barcode = new StringBuilder(barcode).append(pressedKey).toString();
             }
+        }
 
-            if (e.getAction() == KeyEvent.ACTION_DOWN && e.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
-                // Toast.makeText(getApplicationContext(), barcode, Toast.LENGTH_LONG).show();
-                ProcessScan(barcode);
-                return true;
-            }
+        if (e.getAction() == KeyEvent.ACTION_DOWN && e.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
+            // Toast.makeText(getApplicationContext(), barcode, Toast.LENGTH_LONG).show();
+            ProcessScan(barcode);
+            return true;
+        }
 /*        }else{
             Toast.makeText(MainActivity.this, "Please close keyboard while scanning.....", Toast.LENGTH_SHORT).show();
             barcode = "";
@@ -467,11 +467,11 @@ public class MainActivity extends AppCompatActivity implements DrawerFragment.Fr
             }
             break;
 
-           case "Load Generation": {
+            case "Load Generation": {
                 fragment = new LoadGenerationFragment();
                 title = "Load Generation";
-           }
-           break;
+            }
+            break;
 
             case "Delete OBD Picked Items": {
                 fragment = new DeleteOBDPickedItemsFragment();
